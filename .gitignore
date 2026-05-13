@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.sui-agent-gateway/
+.env
+coverage/

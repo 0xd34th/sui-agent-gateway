@@ -1,0 +1,57 @@
+{
+  "name": "sui-agent-gateway",
+  "version": "0.1.0",
+  "description": "MCP server for capped Sui agent wallets, swaps, sends, staking, and guarded DeFi adapters.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xd34th/sui-agent-gateway.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0xd34th/sui-agent-gateway/issues"
+  },
+  "homepage": "https://github.com/0xd34th/sui-agent-gateway#readme",
+  "type": "module",
+  "files": [
+    "dist",
+    "docs",
+    "scripts",
+    "README.md"
+  ],
+  "bin": {
+    "sui-agent-gateway": "dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "dev": "tsx src/server.ts",
+    "start": "node dist/server.js",
+    "prepublishOnly": "npm run build && npm test",
+    "postinstall": "node scripts/patch-suilend-sui-fe.mjs"
+  },
+  "dependencies": {
+    "@bluefin-exchange/bluefin7k-aggregator-sdk": "^6.0.0",
+    "@bucket-protocol/sdk": "^2.1.4",
+    "@cetusprotocol/aggregator-sdk": "^1.5.3",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@mysten/bcs": "^2.0.1",
+    "@mysten/sui": "^2.16.2",
+    "@pythnetwork/pyth-sui-js": "^2.2.0",
+    "@scallop-io/sui-scallop-sdk": "^3.0.2",
+    "@suilend/sdk": "^3.0.3",
+    "@suilend/springsui-sdk": "^3.0.1",
+    "@suilend/sui-fe": "^3.0.2",
+    "aftermath-ts-sdk": "^2.0.1",
+    "bignumber.js": "^11.1.1",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
